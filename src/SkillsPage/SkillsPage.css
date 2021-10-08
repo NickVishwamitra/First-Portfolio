@@ -1,0 +1,60 @@
+.page {
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.containerWrap {
+  padding: 0.35%;
+  background: linear-gradient(
+    to right,
+    rgba(5, 175, 225, 1) 0%,
+    rgba(43, 182, 115, 1) 90%
+  );
+  display: flex;
+  border-radius: 5.6%;
+  align-items: center;
+  justify-content: center;
+}
+.skillsContainer {
+  width: 70vw;
+  height: 60vh;
+  border-radius: 5%;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.reactPart {
+  /* width: 20%; */
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 7;
+  overflow: hidden;
+}
+.jsPart {
+  /* width: 20%; */
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 7;
+  overflow: hidden;
+  gap: 0;
+}
+
+.separator {
+  height: 100%;
+  width: 2px;
+  background-color: #03aee5;
+}

@@ -1,56 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useRef, useState } from "react";
+import "./App.css";
+import { Fragment } from "react";
+import HeaderContent from "./Header/HeaderContent";
+import ThemeProvider from "./Themes";
+import ContactMe from "./Contact/ContactMe";
+import JumpButton from "./PageJumpButton/JumpButton";
+import SkillsPage from "./SkillsPage/SkillsPage";
+export const APP_ID = "realm-app-tilbf";
 
 function App() {
+  const contactRef = useRef(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div style={{ width: "100%" }}>
+      <ThemeProvider props={null}>
+        <JumpButton />
+        <HeaderContent contactRef={contactRef} />
+        <SkillsPage />
+        <ContactMe ref={contactRef}></ContactMe>
+      </ThemeProvider>
     </div>
   );
 }

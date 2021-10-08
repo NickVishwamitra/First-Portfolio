@@ -1,0 +1,151 @@
+.header {
+  width: auto;
+  height: 100vh;
+  /* background-color: #06090b; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  position: relative;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: 100vw 100vh;
+}
+
+.container {
+  display: grid;
+}
+
+.person {
+  width: 25%;
+  height: 40%;
+  /* transform: translateX(50%) translateY(20%); */
+  top: 39%;
+  left: 85%;
+  position: absolute;
+  z-index: 1;
+}
+
+.table {
+  width: 30%;
+  height: 40%;
+
+  position: absolute;
+  top: 42%;
+  left: 0%;
+  z-index: 2;
+}
+
+.homeBoard {
+  position: absolute;
+  /* opacity: 0; */
+  width: 42%;
+  height: 45%;
+  top: -28%;
+  left: 47%;
+  /* transform: translateX(50%) translateY(-50%); */
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  /* justify-content: center; */
+  /* opacity: 0; */
+  grid-row: 1;
+  grid-column: 1;
+  width: 35%;
+  height: 70%;
+  top: 16%;
+  left: 20%;
+  flex-direction: column;
+}
+
+.hello {
+  /* top: 20%;
+  left: 20%; */
+  /* position: absolute; */
+  font-weight: 700;
+  font-size: 3.5vw;
+  color: #03aee5;
+}
+
+.im {
+  /* position: absolute; */
+  font-weight: 400;
+  font-size: 3.5vw;
+  /* top: 20%; */
+  /* color: white; */
+}
+
+.name {
+  /* position: absolute; */
+  font-weight: 500;
+  font-size: 3.25vw;
+  /* left: 20%; */
+  /* color: white; */
+}
+
+.bio {
+  /* position: absolute; */
+  /* color: white; */
+  font-size: 1vw;
+  width: 60%;
+  margin-top: 5%;
+  height: 80%;
+}
+
+.offClick {
+  width: 80vw;
+  height: 100vh;
+  left: 20%;
+  position: absolute;
+  z-index: 4;
+}
+.nextPgContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  /* color: white; */
+  top: 90vh;
+  left: 48vw;
+  font-size: 2vh;
+  opacity: 0%;
+  gap: 10px;
+  animation: nxtOpacity 0.5s forwards 4.5s;
+}
+
+.nextPgContainer:hover {
+  cursor: pointer;
+}
+
+.iconContainer {
+  display: flex;
+  position: absolute;
+  transform: scale(0.2);
+  height: auto;
+  width: auto;
+  /* right: auto; */
+  left: 70%;
+  top: -7vh;
+  z-index: 7;
+  gap: 5vw;
+}
+
+/* .avatar {
+  z-index: 5;
+  transform: scale(10%);
+  position: absolute;
+  border-radius: 100%;
+  top: -25%;
+  left: 40%;
+} */
+
+@keyframes nxtOpacity {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 50%;
+  }
+}
