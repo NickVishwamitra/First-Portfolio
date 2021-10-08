@@ -1,4 +1,4 @@
-import { ThemeContext } from "../Themes";
+import { ThemeContext, theme } from "../Themes";
 import { motion, useCycle } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { useState } from "react";
@@ -18,7 +18,6 @@ const JavascriptPart = (props: any) => {
   const variants = {
     closed: {
       width: "16.6%",
-      backgroundColor: currentTheme.nav,
     },
     open: {
       width: "60%",
@@ -39,6 +38,7 @@ const JavascriptPart = (props: any) => {
       variants={variants}
       initial="closed"
       animate={isOpen && openPart == 2 ? "open" : ""}
+      style={{ backgroundColor: theme.dark.nav }}
     >
       <motion.img
         src={Logo}

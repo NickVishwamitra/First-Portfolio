@@ -1,4 +1,4 @@
-import { ThemeContext } from "../Themes";
+import { theme, ThemeContext } from "../Themes";
 import { motion, useCycle } from "framer-motion";
 import { useContext } from "react";
 import { useState } from "react";
@@ -18,7 +18,6 @@ const EthereumPart = (props: any) => {
   const variants = {
     closed: {
       width: "16.6%",
-      backgroundColor: currentTheme.nav,
       ease: "easeInOut",
     },
     open: {
@@ -40,6 +39,7 @@ const EthereumPart = (props: any) => {
       variants={variants}
       initial="closed"
       animate={isOpen && openPart == 5 ? "open" : ""}
+      style={{ backgroundColor: `${theme.dark.nav}` }}
     >
       <motion.img
         src={Logo}

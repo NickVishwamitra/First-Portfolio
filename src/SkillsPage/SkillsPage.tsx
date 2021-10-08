@@ -10,16 +10,16 @@ import CssPart from "./CssPart";
 import HtmlPart from "./HtmlPart";
 import EthereumPart from "./EthereumPart";
 import MongoPart from "./MongoPart";
-const SkillsPage = () => {
+const SkillsPage = (props: any) => {
   const { currentTheme } = useContext(ThemeContext);
   const [openPart, setOpenPart] = useState(0);
   return (
     <div className="page" style={{ background: currentTheme.background }}>
+      <p className="skillsTitle" style={{ color: `#03aee5` }}>
+        SKILLS
+      </p>
       <div className="containerWrap">
-        <div
-          className="skillsContainer"
-          //   style={{ background: currentTheme.background }}
-        >
+        <div className="skillsContainer">
           <ReactPart openObject={{ openPart, setOpenPart }} />
           <div className="separator"></div>
           <JavascriptPart openObject={{ openPart, setOpenPart }} />

@@ -5,8 +5,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 10%;
 }
-
+.skillsTitle {
+  font-size: 4em;
+}
 .containerWrap {
   padding: 0.35%;
   background: linear-gradient(
@@ -57,4 +60,15 @@
   height: 100%;
   width: 2px;
   background-color: #03aee5;
+}
+
+.reactItems {
+  position: absolute;
+  width: 26%;
+  height: 100%;
+  left: 15%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  color: #03aee5;
 }

@@ -9,15 +9,13 @@ import SkillsPage from "./SkillsPage/SkillsPage";
 export const APP_ID = "realm-app-tilbf";
 
 function App() {
-  const contactRef = useRef(null);
-
   return (
     <div style={{ width: "100%" }}>
       <ThemeProvider props={null}>
         <JumpButton />
-        <HeaderContent contactRef={contactRef} />
+        <HeaderContent />
         <SkillsPage />
-        <ContactMe ref={contactRef}></ContactMe>
+        <ContactMe></ContactMe>
       </ThemeProvider>
     </div>
   );

@@ -1,5 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
+import { ThemeContext } from "../../Themes";
+import { useContext } from "react";
 
 const variants = {
   open: {
@@ -17,19 +19,67 @@ const variants = {
     },
   },
 };
+const skillsSec = window.visualViewport.height;
+const contactSec = window.visualViewport.height * 2;
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
+const colors = ["#03aee5", "#00FFFC", "#2BB673"];
+let text = "";
 
-export const NavItem = ({ i }: { i: any }) => {
-  const style = { border: `2px solid ${colors[i]}` };
+export const NavItem = ({ props, i }: { i: any; props: any }) => {
+  const { currentTheme } = useContext(ThemeContext);
+  const checkHandler = (i: any) => {
+    switch (i) {
+      case 0:
+        text = "Home";
+        return text;
+
+      case 1:
+        text = "Skills";
+        return text;
+
+      case 2:
+        text = "Contact Me";
+        return text;
+    }
+  };
+
+  const clickHandler = (i: any) => {
+    switch (i) {
+      case 0:
+        return;
+      case 1:
+        window.scrollTo({ top: skillsSec, behavior: "smooth" });
+        return;
+      case 2:
+        window.scrollTo({ top: contactSec, behavior: "smooth" });
+        return;
+    }
+  };
+  console.log(i);
+  const style = {
+    border: `2px solid ${colors[i]}`,
+    display: "flex",
+    justifyContent: "center",
+    height: "8vh",
+  };
   return (
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
+      onTap={() => clickHandler(i)}
     >
-      <div className="icon-placeholder" style={style} />
-      <div className="text-placeholder" style={style}></div>
+      <div className="text-placeholder" style={style}>
+        <p
+          style={{
+            color: `${currentTheme.text}`,
+            alignSelf: "center",
+            fontSize: "3vh",
+          }}
+        >
+          {checkHandler(i)}
+        </p>
+      </div>
     </motion.li>
   );
 };

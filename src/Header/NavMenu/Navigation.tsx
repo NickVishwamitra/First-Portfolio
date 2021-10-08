@@ -46,7 +46,7 @@ export const Navigtation = (props: any) => {
         variants={sidebar}
         style={{ backgroundColor: currentTheme.nav }}
       />
-      <NavContents />
+      <NavContents skillRef={props.skillRef} contactRef={props.contactRef} />
       <MenuToggle toggle={() => toggleOpen()} currentTheme={currentTheme} />
     </motion.nav>
   );

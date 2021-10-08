@@ -11,12 +11,14 @@ const variants = {
   },
 };
 
-export const NavContents = () => (
-  <motion.ul variants={variants}>
-    {itemIds.map((i) => (
-      <NavItem i={i} key={i} />
-    ))}
-  </motion.ul>
-);
+export const NavContents = (props: any) => {
+  return (
+    <motion.ul variants={variants} {...props}>
+      {itemIds.map((i) => (
+        <NavItem i={i} key={i} props={props} />
+      ))}
+    </motion.ul>
+  );
+};
 
-const itemIds = [0, 1, 2, 3, 4];
+const itemIds = [0, 1, 2];
