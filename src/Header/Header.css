@@ -9,39 +9,54 @@
   background-repeat: no-repeat;
   position: relative;
   background-size: 100vw 100vh;
+  overflow: hidden;
 }
 
 .container {
   display: grid;
 }
 
-.person {
-  width: 25%;
-  height: 40%;
-  /* transform: translateX(50%) translateY(20%); */
-  top: 39%;
-  left: 85%;
+.imageContainer {
+  width: 80vw;
   position: absolute;
+  height: 25vh;
+  left: 40%;
+  flex-direction: column-reverse;
+  bottom: 20%;
+  position: absolute;
+}
+
+.person {
+  width: 30vw;
+  height: 30vh;
+  bottom: 40%;
+  left: 20%;
+  /* left: 86vw; */
+  /* position: absolute; */
   z-index: 1;
+  position: absolute;
 }
 
 .table {
-  width: 30%;
-  height: 40%;
-
+  width: 30vw;
+  height: 35vh;
+  bottom: 20%;
+  left: 5%;
+  padding-bottom: 1%;
   position: absolute;
-  top: 42%;
-  left: 0%;
+  /* top: 42vh; */
   z-index: 2;
 }
 
 .homeBoard {
-  position: absolute;
+  /* position: absolute; */
   /* opacity: 0; */
-  width: 42%;
-  height: 45%;
-  top: -28%;
-  left: 47%;
+  position: absolute;
+  width: 40vw;
+  height: 35vh;
+  left: 10%;
+  bottom: 140%;
+  /* top: -30vh; */
   /* transform: translateX(50%) translateY(-50%); */
 }
 
@@ -65,14 +80,14 @@
   left: 20%; */
   /* position: absolute; */
   font-weight: 700;
-  font-size: 3.5vw;
+  font-size: 3.5em;
   color: #03aee5;
 }
 
 .im {
   /* position: absolute; */
   font-weight: 400;
-  font-size: 3.5vw;
+  font-size: 3.5em;
   /* top: 20%; */
   /* color: white; */
 }
@@ -80,7 +95,7 @@
 .name {
   /* position: absolute; */
   font-weight: 500;
-  font-size: 3.25vw;
+  font-size: 3.25em;
   /* left: 20%; */
   /* color: white; */
 }
@@ -88,7 +103,7 @@
 .bio {
   /* position: absolute; */
   /* color: white; */
-  font-size: 1vw;
+  font-size: 1.2em;
   width: 60%;
   margin-top: 5%;
   height: 80%;
@@ -122,14 +137,12 @@
 .iconContainer {
   display: flex;
   position: absolute;
-  transform: scale(0.2);
-  height: auto;
-  width: auto;
+  width: 6em;
   /* right: auto; */
-  left: 70%;
+  left: 90%;
   top: -7vh;
   z-index: 7;
-  gap: 5vw;
+  gap: 1em;
 }
 
 /* .avatar {

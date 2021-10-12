@@ -1,8 +1,8 @@
 .jumpButton {
-  width: 5vw;
+  width: 5.2em;
   display: flex;
   border-radius: 50%;
-  height: 10vh;
+  height: 5em;
   position: fixed;
   left: 88vw;
   top: 80vh;

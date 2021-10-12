@@ -65,7 +65,7 @@ const ReactPart = (props: any) => {
       >
         <motion.p
           style={{
-            fontSize: "3vw",
+            fontSize: "3.25em",
             marginLeft: "15%",
             textDecoration: "underline",
           }}
@@ -80,7 +80,7 @@ const ReactPart = (props: any) => {
               marginTop: "10%",
               marginLeft: "15%",
               fontWeight: 600,
-              fontSize: "125%",
+              fontSize: "1.25em",
             }}
           >
             Concepts:
@@ -94,7 +94,7 @@ const ReactPart = (props: any) => {
               flexDirection: "column",
               gap: "1vh",
               width: "100%",
-              fontSize: "85%",
+              fontSize: "1em",
             }}
           >
             <motion.p style={{ fontWeight: 400 }}>JSX</motion.p>
@@ -114,64 +114,71 @@ const ReactPart = (props: any) => {
               marginTop: "5%",
               marginLeft: "15%",
               fontWeight: 600,
-              fontSize: "125%",
+              fontSize: "1.25em",
             }}
           >
             Libraries:
           </motion.p>
-          <p style={{ marginLeft: "15%", marginTop: "5%", color: "white" }}>
-            Framer Motion
-          </p>
-          <img
-            src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg"
-            style={{
-              transform: "scale(0.5)",
-              position: "absolute",
-              width: "20%",
-
-              left: "50%",
-              bottom: "30%",
-            }}
-          ></img>
-          <p style={{ marginLeft: "15%", marginTop: "10%", color: "white" }}>
-            Material-UI
-          </p>
-          <img
-            src="https://cdn.worldvectorlogo.com/logos/material-ui-1.svg"
-            style={{
-              transform: "scale(1)",
-              width: "10%",
-              position: "absolute",
-              left: "55%",
-              bottom: "25%",
-            }}
-          ></img>
-          <p style={{ marginLeft: "15%", marginTop: "10%", color: "white" }}>
-            AntDesign
-          </p>
-          <img
-            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-            style={{
-              transform: "scale(1)",
-              width: "10%",
-              position: "absolute",
-              left: "55%",
-              bottom: "15%",
-            }}
-          ></img>
-          <p style={{ marginLeft: "15%", marginTop: "10%", color: "white" }}>
-            Redux
-          </p>
-          <img
-            src="https://redux.js.org/img/redux.svg"
-            style={{
-              transform: "scale(1)",
-              width: "10%",
-              position: "absolute",
-              left: "55%",
-              bottom: "6%",
-            }}
-          ></img>
+          <div style={{ display: "flex" }}>
+            <p style={{ marginLeft: "15%", marginTop: "5%", color: "white" }}>
+              Framer Motion
+            </p>
+            <img
+              src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg"
+              style={{
+                transform: "scale(0.8)",
+                width: "10%",
+                marginLeft: "0.5em",
+                marginTop: "0.8em",
+              }}
+            ></img>
+          </div>
+          <div style={{ display: "flex" }}>
+            <p style={{ marginLeft: "15%", marginTop: "5%", color: "white" }}>
+              Material-UI
+            </p>
+            <img
+              src="https://cdn.worldvectorlogo.com/logos/material-ui-1.svg"
+              style={{
+                transform: "scale(1)",
+                width: "10%",
+                marginLeft: "2.25em",
+                marginTop: "0.5em",
+              }}
+            ></img>
+          </div>
+          <div style={{ display: "flex" }}>
+            <p
+              style={{ marginLeft: "15%", marginTop: "1.25em", color: "white" }}
+            >
+              AntDesign
+            </p>
+            <img
+              src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+              style={{
+                transform: "scale(1)",
+                width: "10%",
+                marginLeft: "2.25em",
+                marginTop: "0.5em",
+              }}
+            ></img>
+          </div>
+          <div style={{ display: "flex" }}>
+            <p
+              style={{ marginLeft: "15%", marginTop: "1.25em", color: "white" }}
+            >
+              Redux
+            </p>
+            <img
+              src="https://redux.js.org/img/redux.svg"
+              style={{
+                transform: "scale(1)",
+                width: "10%",
+                marginLeft: "4.25em",
+                marginTop: "0.5em",
+              }}
+            ></img>
+          </div>
         </div>
       </motion.div>
     </motion.div>

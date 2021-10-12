@@ -74,7 +74,7 @@ export const NavItem = ({ props, i }: { i: any; props: any }) => {
           style={{
             color: `${currentTheme.text}`,
             alignSelf: "center",
-            fontSize: "3vh",
+            fontSize: "1.5vw",
           }}
         >
           {checkHandler(i)}

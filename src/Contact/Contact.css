@@ -16,8 +16,8 @@
 
   align-self: center;
 
-  width: 60vw;
-  height: 90vh;
+  width: 65%;
+  height: 48em;
 
   border-radius: 5%;
   box-shadow: 0px 0px 15px #202224;
@@ -27,7 +27,7 @@
   flex-direction: column;
   padding: 10%;
   padding-top: 2%;
-  gap: 5%;
+  gap: 2em;
 }
 
 .contactForm {
@@ -37,12 +37,6 @@
 
 .contactText {
   align-self: center;
-  font-size: 3vw;
+  font-size: 3em;
   font-family: "ubuntu";
-}
-
-.buttonContainer {
-}
-
-.sendButton {
 }

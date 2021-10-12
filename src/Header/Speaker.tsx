@@ -3,12 +3,10 @@ import { animate, motion, useCycle } from "framer-motion";
 import { useEffect } from "react";
 import { useState, useContext } from "react";
 import { theme, ThemeContext } from "../Themes";
-const Speaker = () => {
+const Speaker = (props: any) => {
   const { currentTheme } = useContext(ThemeContext);
   const [stroke, setStroke] = useState("#FFFF");
-
-  const [isOn, toggleIsOn] = useCycle(true, false);
-
+  const { soundIsOn, toggleSoundIsOn } = props.soundIsOnObj;
   useEffect(() => {
     if (currentTheme == theme.light) {
       setStroke("#000");
@@ -26,7 +24,7 @@ const Speaker = () => {
   };
 
   const tapHandler = () => {
-    toggleIsOn();
+    toggleSoundIsOn();
   };
 
   return (
@@ -37,7 +35,7 @@ const Speaker = () => {
       fill="#000000"
       viewBox="0 0 256 256"
       onTap={tapHandler}
-      whileTap={{ scale: 0.8 }}
+      whileTap={{ scale: 0.8, x: "-70%" }}
       style={{ zIndex: 4, cursor: "pointer" }}
     >
       <rect width="256" height="256" fill="none"></rect>
@@ -50,7 +48,7 @@ const Speaker = () => {
         strokeWidth="16"
         variants={pathVariants}
         initial="soundOn"
-        animate={isOn ? "soundOn" : "soundOff"}
+        animate={soundIsOn ? "soundOn" : "soundOff"}
         transition={{ delay: 0.1 }}
       ></motion.path>
       <path
@@ -81,7 +79,7 @@ const Speaker = () => {
         strokeWidth="16"
         variants={pathVariants}
         initial="soundOn"
-        animate={isOn ? "soundOn" : "soundOff"}
+        animate={soundIsOn ? "soundOn" : "soundOff"}
       ></motion.path>
     </motion.svg>
   );

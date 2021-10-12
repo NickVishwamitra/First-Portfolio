@@ -84,7 +84,7 @@ const ContactMe = (props: any) => {
         <MyCssTextField
           inputRef={nameForm}
           label="Name"
-          style={{ marginRight: "20vw" }}
+          style={{ marginRight: "20em" }}
           required
         ></MyCssTextField>
 
@@ -112,8 +112,9 @@ const ContactMe = (props: any) => {
             loading={isLoading}
             loadingPosition="end"
             endIcon={<PaperPlaneRight />}
+            style={{ padding: "1.5em 3.5em", marginLeft: "36vw" }}
           >
-            <motion.p style={{ fontSize: "1vw" }}>Submit</motion.p>
+            <motion.p style={{ fontSize: "1em" }}>Submit</motion.p>
           </SendButton>
         </div>
       </div>

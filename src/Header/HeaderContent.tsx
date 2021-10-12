@@ -14,6 +14,8 @@ const HeaderContent = (props: any) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const { currentTheme, setTheme } = useContext(ThemeContext);
   const [iconColor, setIconColor] = useState("white");
+  const [soundIsOn, toggleSoundIsOn] = useCycle(true, false);
+
   console.log(visualViewport.width);
   const toggleTheme = () => {
     if (currentTheme == theme.dark) {
@@ -40,14 +42,13 @@ const HeaderContent = (props: any) => {
       <ImagesAndText></ImagesAndText>
       <NextPageBtn currentTheme={currentTheme}></NextPageBtn>
 
-      {window.visualViewport.width > 1000 ? (
-        <div className="iconContainer">
-          <Speaker />
-          <LightBulb />
-        </div>
-      ) : (
-        ""
-      )}
+      <div className="iconContainer">
+        <Speaker
+          classname="speaker"
+          soundIsOnObj={{ soundIsOn, toggleSoundIsOn }}
+        />
+        <LightBulb soundIsOn={soundIsOn} />
+      </div>
     </div>
   );
 };

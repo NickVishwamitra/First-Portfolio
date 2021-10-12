@@ -3,11 +3,12 @@ import { useState, useContext } from "react";
 import { theme, ThemeContext } from "../Themes";
 import useSound from "use-sound";
 import lightSfx from "../Sounds/light.mp3";
-const LightBulb = () => {
+const LightBulb = (props: any) => {
   const { currentTheme, setTheme } = useContext(ThemeContext);
   const [stroke, toggleStroke] = useCycle("#FFFF", "#000");
   const [isLight, toggleIsLight] = useCycle(false, true);
   const [play] = useSound(lightSfx);
+  const soundIsOn = props.soundIsOn;
 
   const variants = {
     dark: {
@@ -22,7 +23,6 @@ const LightBulb = () => {
   };
 
   const themeHandler = () => {
-    play();
     if (currentTheme == theme.dark) {
       toggleStroke();
       setTheme(theme.light);
@@ -32,6 +32,9 @@ const LightBulb = () => {
       toggleStroke();
       toggleIsLight();
     }
+    if (soundIsOn) {
+      play();
+    }
   };
 
   return (
@@ -40,7 +43,7 @@ const LightBulb = () => {
       width="192"
       height="192"
       viewBox="0 0 256 256"
-      whileTap={{ scale: 0.8 }}
+      whileTap={{ scale: 0.8, x: "-70%" }}
       onTap={themeHandler}
       style={{ cursor: "pointer" }}
     >
