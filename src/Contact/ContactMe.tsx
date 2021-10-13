@@ -7,6 +7,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import { useState, useRef } from "react";
 import { PaperPlaneRight } from "phosphor-react";
 import { motion } from "framer-motion";
+import Submitted from "./Submitted";
 const SendButton = styled(LoadingButton)({
   " &.MuiButton-root": {
     fontSize: "1.25rem",
@@ -18,6 +19,7 @@ const SendButton = styled(LoadingButton)({
 
 const ContactMe = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [submitted, setIsSubmitted] = useState(false);
   const nameForm = useRef<any>();
   const emailForm = useRef<any>();
   const commentForm = useRef<any>();
@@ -39,6 +41,7 @@ const ContactMe = (props: any) => {
 
     setTimeout(() => {
       setIsLoading(false);
+      setIsSubmitted(true);
     }, 2000);
   };
 
@@ -70,7 +73,7 @@ const ContactMe = (props: any) => {
 
   return (
     <div className="contactPage">
-      <div
+      <motion.div
         className="contactBox"
         style={{ backgroundColor: `${color}` }}
         key={2}
@@ -81,43 +84,50 @@ const ContactMe = (props: any) => {
         >
           CONTACT ME 😀
         </p>
-        <MyCssTextField
-          inputRef={nameForm}
-          label="Name"
-          style={{ marginRight: "20em" }}
-          required
-        ></MyCssTextField>
+        {submitted ? <Submitted submitted={submitted} /> : null}
+        <motion.div
+          style={{ display: "flex", flexDirection: "column", gap: "2.25vh" }}
+          animate={submitted ? { display: "none" } : ""}
+          transition={{ duration: 0.5 }}
+        >
+          <MyCssTextField
+            inputRef={nameForm}
+            label="Name"
+            style={{ marginRight: "20em" }}
+            required
+          ></MyCssTextField>
 
-        <MyCssTextField
-          label="Email"
-          fullWidth
-          required
-          name="email"
-          inputRef={emailForm}
-        ></MyCssTextField>
-        <MyCssTextField
-          label="Comments"
-          fullWidth
-          required
-          multiline
-          inputRef={commentForm}
-          // disabled={isDisabled}
-          rows={8}
-        ></MyCssTextField>
-        <div className="buttonContainer">
-          <SendButton
-            color="primary"
-            className="sendButton"
-            onClick={SubmitHandler}
-            loading={isLoading}
-            loadingPosition="end"
-            endIcon={<PaperPlaneRight />}
-            style={{ padding: "1.5em 3.5em", marginLeft: "36vw" }}
-          >
-            <motion.p style={{ fontSize: "1em" }}>Submit</motion.p>
-          </SendButton>
-        </div>
-      </div>
+          <MyCssTextField
+            label="Email"
+            fullWidth
+            required
+            name="email"
+            inputRef={emailForm}
+          ></MyCssTextField>
+          <MyCssTextField
+            label="Comments"
+            fullWidth
+            required
+            multiline
+            inputRef={commentForm}
+            // disabled={isDisabled}
+            rows={8}
+          ></MyCssTextField>
+          <div className="buttonContainer">
+            <SendButton
+              color="primary"
+              className="sendButton"
+              onClick={SubmitHandler}
+              loading={isLoading}
+              loadingPosition="end"
+              endIcon={<PaperPlaneRight />}
+              style={{ padding: "1.5em 3.5em", marginLeft: "36vw" }}
+            >
+              <motion.p style={{ fontSize: "1em" }}>Submit</motion.p>
+            </SendButton>
+          </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

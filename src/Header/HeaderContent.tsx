@@ -9,14 +9,20 @@ import { useContext } from "react";
 import { useState } from "react";
 import Speaker from "./Speaker";
 import LightBulb from "./LightBulb";
-import { useEffect } from "react";
+import Intro from "../images/introLogo.gif";
+import { motion } from "framer-motion";
+import { Fragment } from "react";
 const HeaderContent = (props: any) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const { currentTheme, setTheme } = useContext(ThemeContext);
   const [iconColor, setIconColor] = useState("white");
   const [soundIsOn, toggleSoundIsOn] = useCycle(true, false);
+  const [done, setDone] = useState(false);
 
-  console.log(visualViewport.width);
+  setTimeout(() => {
+    setDone(true);
+  }, 6000);
+  document.body.style.overflow = done ? "" : "hidden";
   const toggleTheme = () => {
     if (currentTheme == theme.dark) {
       setTheme(theme.light);
@@ -27,29 +33,42 @@ const HeaderContent = (props: any) => {
     }
   };
   return (
-    <div
-      className="header"
-      style={{
-        backgroundImage: `url(${Background})`,
-        backgroundColor: currentTheme.background,
-      }}
-    >
-      <Navigtation openObject={{ isOpen, toggleOpen }} />
-
-      {isOpen ? (
-        <div className="offClick" onClick={() => toggleOpen()}></div>
-      ) : null}
-      <ImagesAndText></ImagesAndText>
-      <NextPageBtn currentTheme={currentTheme}></NextPageBtn>
-
-      <div className="iconContainer">
-        <Speaker
-          classname="speaker"
-          soundIsOnObj={{ soundIsOn, toggleSoundIsOn }}
+    <Fragment>
+      <div
+        className="header"
+        style={{
+          backgroundImage: `url(${Background})`,
+          backgroundColor: currentTheme.background,
+        }}
+      >
+        <motion.img
+          src={Intro}
+          style={{
+            height: "100vh",
+            width: "100vw",
+            zIndex: 8,
+            display: done ? "none" : "",
+          }}
+          animate={{ opacity: 0 }}
+          transition={{ delay: 5 }}
         />
-        <LightBulb soundIsOn={soundIsOn} />
+        <Navigtation openObject={{ isOpen, toggleOpen }} />
+
+        {isOpen ? (
+          <div className="offClick" onClick={() => toggleOpen()}></div>
+        ) : null}
+        <ImagesAndText></ImagesAndText>
+        <NextPageBtn currentTheme={currentTheme}></NextPageBtn>
+
+        <div className="iconContainer">
+          <Speaker
+            classname="speaker"
+            soundIsOnObj={{ soundIsOn, toggleSoundIsOn }}
+          />
+          <LightBulb soundIsOn={soundIsOn} />
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

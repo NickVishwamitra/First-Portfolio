@@ -20,14 +20,14 @@ const ImagesAndText = () => {
             className="table"
             initial={{ x: -1000 }}
             animate={{ x: 0, opacity: [0, 100] }}
-            transition={{ type: "spring", duration: 1, delay: 0.5 }}
+            transition={{ type: "spring", duration: 1, delay: 5.5 }}
           ></motion.img>
           <motion.img
             src={person}
             className="person"
             initial={{ x: "80vw" }}
             animate={{ x: 0, opacity: [0, 100] }}
-            transition={{ type: "spring", duration: 1.25, delay: 1.5 }}
+            transition={{ type: "spring", duration: 1.25, delay: 6.5 }}
           ></motion.img>
         </div>
         <motion.img
@@ -35,21 +35,21 @@ const ImagesAndText = () => {
           className="homeBoard"
           initial={{ y: "-100vw" }}
           animate={{ y: 0, opacity: [0, 100] }}
-          transition={{ type: "spring", duration: 1, delay: 0.5 }}
+          transition={{ type: "spring", duration: 1, delay: 5.5 }}
         ></motion.img>
       </div>
 
       <motion.div
         className="container"
         animate={{ opacity: [0, 100] }}
-        transition={{ type: "tween", duration: 2, delay: 2.5 }}
+        transition={{ type: "tween", duration: 2, delay: 7.5 }}
       >
         <div style={{ display: "flex", gap: "3%" }}>
           <motion.p className="hello">Hello,</motion.p>
           <motion.p
             className="im"
             animate={{ opacity: [0, 100] }}
-            transition={{ type: "tween", duration: 2, delay: 3.25 }}
+            transition={{ type: "tween", duration: 2, delay: 8.25 }}
             style={{ color: currentTheme.text }}
           >
             i'm
@@ -58,7 +58,7 @@ const ImagesAndText = () => {
         <motion.p
           className="name"
           animate={{ opacity: [0, 100] }}
-          transition={{ type: "tween", duration: 2, delay: 3.25 }}
+          transition={{ type: "tween", duration: 2, delay: 8.25 }}
           style={{ color: currentTheme.text }}
         >
           Nick Vishwamitra
@@ -66,7 +66,7 @@ const ImagesAndText = () => {
         <motion.p
           className="bio"
           animate={{ opacity: [0, 100] }}
-          transition={{ type: "tween", duration: 2, delay: 4.5 }}
+          transition={{ type: "tween", duration: 2, delay: 9.5 }}
           style={{ color: currentTheme.text, lineHeight: "125%" }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu sem

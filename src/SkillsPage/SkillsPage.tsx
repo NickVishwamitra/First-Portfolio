@@ -19,7 +19,7 @@ const SkillsPage = (props: any) => {
         SKILLS
       </p>
       <div className="containerWrap">
-        <div className="skillsContainer">
+        <motion.div className="skillsContainer">
           <ReactPart openObject={{ openPart, setOpenPart }} />
           <div className="separator"></div>
           <JavascriptPart openObject={{ openPart, setOpenPart }} />
@@ -31,7 +31,7 @@ const SkillsPage = (props: any) => {
           <EthereumPart openObject={{ openPart, setOpenPart }} />
           <div className="separator"></div>
           <MongoPart openObject={{ openPart, setOpenPart }} />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

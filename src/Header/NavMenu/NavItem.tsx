@@ -20,7 +20,7 @@ const variants = {
   },
 };
 const skillsSec = window.visualViewport.height;
-const contactSec = window.visualViewport.height * 2;
+const contactSec = window.visualViewport.height * 4;
 
 const colors = ["#03aee5", "#00FFFC", "#2BB673"];
 let text = "";

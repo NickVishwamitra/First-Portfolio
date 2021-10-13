@@ -15,7 +15,6 @@ const JumpButton = () => {
       setScrollTop(e.target.documentElement.scrollTop);
     };
     window.addEventListener("scroll", onScroll);
-    console.log(scrollTop);
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollTop]);
   return (
