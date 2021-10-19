@@ -1,5 +1,5 @@
 import "./Contact.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { theme, ThemeContext } from "../Themes";
 // import Box from "@mui/material/Box";
 import { styled, TextField } from "@mui/material";
@@ -8,6 +8,41 @@ import { useState, useRef } from "react";
 import { PaperPlaneRight } from "phosphor-react";
 import { motion } from "framer-motion";
 import Submitted from "./Submitted";
+import axios from "axios";
+
+// const { MongoClient } = require("mongodb");
+
+// // Replace the following with your Atlas connection string
+// const url =
+//   "mongodb+srv://Nickv123:Neewer0123@cluster0.xgxas.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// const client = new MongoClient(url);
+// const dbName = "PortfolioMessages";
+
+// const contactInfoAdd = async function (
+//   name: string,
+//   email: string,
+//   comment: string
+// ) {
+//   try {
+//     await client.connect();
+//     console.log("Connected correctly to server");
+//     const db = client.db(dbName);
+
+//     const col = db.collection("messages");
+
+//     let messageDocument = {
+//       name: { name },
+//       email: { email },
+//       comment: { comment },
+//     };
+
+//     const p = await col.insertOne(messageDocument);
+//     const myDoc = await col.findOne();
+//   } catch (err: any) {
+//     console.log(err.stack);
+//   }
+// };
+
 const SendButton = styled(LoadingButton)({
   " &.MuiButton-root": {
     fontSize: "1.25rem",
@@ -20,6 +55,9 @@ const SendButton = styled(LoadingButton)({
 const ContactMe = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setIsSubmitted] = useState(false);
+  const [currentName, setName] = useState("");
+  const [currentEmail, setEmail] = useState("");
+  const [currentComment, setComment] = useState("");
   const nameForm = useRef<any>();
   const emailForm = useRef<any>();
   const commentForm = useRef<any>();
@@ -32,17 +70,27 @@ const ContactMe = (props: any) => {
   } else {
     color = theme.light.background;
   }
+  console.log(currentComment, currentEmail, currentName);
+
+  useEffect(() => {
+    const newContact = {
+      name: currentName,
+      email: currentEmail,
+      comment: currentComment,
+    };
+
+    if (currentName)
+      axios
+        .post("https://damp-spire-33780.herokuapp.com/record/add", newContact)
+        .then((res) => console.log(res.data));
+  }, [currentName]);
 
   const SubmitHandler = () => {
-    console.log(nameForm.current!.value);
-    console.log(emailForm.current!.value);
-    console.log(commentForm.current!.value);
-    setIsLoading(true);
+    setName(nameForm.current!.value);
+    setEmail(emailForm.current!.value);
+    setComment(commentForm.current!.value);
 
-    setTimeout(() => {
-      setIsLoading(false);
-      setIsSubmitted(true);
-    }, 2000);
+    setIsSubmitted(true);
   };
 
   const MyCssTextField = styled(TextField)({
@@ -86,46 +134,47 @@ const ContactMe = (props: any) => {
         </p>
         {submitted ? <Submitted submitted={submitted} /> : null}
         <motion.div
-          style={{ display: "flex", flexDirection: "column", gap: "2.25vh" }}
           animate={submitted ? { display: "none" } : ""}
           transition={{ duration: 0.5 }}
         >
-          <MyCssTextField
-            inputRef={nameForm}
-            label="Name"
-            style={{ marginRight: "20em" }}
-            required
-          ></MyCssTextField>
+          <form
+            style={{ display: "flex", flexDirection: "column", gap: "2.25vh" }}
+          >
+            <MyCssTextField
+              inputRef={nameForm}
+              label="Name"
+              style={{ marginRight: "20em" }}
+              required
+            ></MyCssTextField>
 
-          <MyCssTextField
-            label="Email"
-            fullWidth
-            required
-            name="email"
-            inputRef={emailForm}
-          ></MyCssTextField>
-          <MyCssTextField
-            label="Comments"
-            fullWidth
-            required
-            multiline
-            inputRef={commentForm}
-            // disabled={isDisabled}
-            rows={8}
-          ></MyCssTextField>
-          <div className="buttonContainer">
-            <SendButton
-              color="primary"
-              className="sendButton"
-              onClick={SubmitHandler}
-              loading={isLoading}
-              loadingPosition="end"
-              endIcon={<PaperPlaneRight />}
-              style={{ padding: "1.5em 3.5em", marginLeft: "36vw" }}
-            >
-              <motion.p style={{ fontSize: "1em" }}>Submit</motion.p>
-            </SendButton>
-          </div>
+            <MyCssTextField
+              label="Email"
+              fullWidth
+              required
+              name="email"
+              inputRef={emailForm}
+            ></MyCssTextField>
+            <MyCssTextField
+              label="Comments"
+              fullWidth
+              required
+              multiline
+              inputRef={commentForm}
+              // disabled={isDisabled}
+              rows={8}
+            ></MyCssTextField>
+            <div className="buttonContainer">
+              <SendButton
+                color="primary"
+                className="sendButton"
+                onClick={SubmitHandler}
+                endIcon={<PaperPlaneRight />}
+                style={{ padding: "1.5em 3.5em", marginLeft: "36vw" }}
+              >
+                <motion.p style={{ fontSize: "1em" }}>Submit</motion.p>
+              </SendButton>
+            </div>
+          </form>
         </motion.div>
       </motion.div>
     </div>

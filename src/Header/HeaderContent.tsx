@@ -21,8 +21,7 @@ const HeaderContent = (props: any) => {
 
   setTimeout(() => {
     setDone(true);
-  }, 6000);
-  document.body.style.overflow = done ? "" : "hidden";
+  }, 5000);
   const toggleTheme = () => {
     if (currentTheme == theme.dark) {
       setTheme(theme.light);
